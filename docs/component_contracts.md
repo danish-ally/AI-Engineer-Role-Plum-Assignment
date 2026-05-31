@@ -57,6 +57,40 @@ Produces: structured extraction object containing patient, diagnosis, procedures
 
 Errors: per-document parsing failures become quality issues and `DEGRADED` trace events. The component continues processing other documents.
 
+## AI Extraction Adapter
+
+Accepts: one normalized document, OCR/text content, and extraction helper functions.
+
+Produces:
+
+```json
+{
+  "ok": true,
+  "mode": "schema_guided_ai_adapter",
+  "fallbackUsed": false,
+  "errors": [],
+  "extraction": {
+    "schemaVersion": "medical-claim-extraction.v1",
+    "documentId": "F008",
+    "declaredType": "HOSPITAL_BILL",
+    "inferredType": "HOSPITAL_BILL",
+    "patient": { "name": "Rajesh Kumar" },
+    "providers": [],
+    "diagnosis": [],
+    "procedures": [],
+    "medicines": [],
+    "tests": [],
+    "amounts": [],
+    "dates": [],
+    "lineItems": [],
+    "quality": { "score": 0.88, "issue": null },
+    "confidence": 0.96
+  }
+}
+```
+
+Errors: schema mismatches, missing document identifiers, invalid confidence, and malformed array fields. These are returned as validation errors and shown in trace; policy evaluation only consumes validated structured fields.
+
 ## Policy Evaluation Agent
 
 Accepts: normalized claim, extracted data, and policy configuration.

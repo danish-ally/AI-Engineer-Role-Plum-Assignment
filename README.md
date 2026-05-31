@@ -24,6 +24,7 @@ The eval report is generated at `reports/eval_report.md` and `reports/eval_resul
 - Claim submission UI with sample cases.
 - Early document verification using `policy_terms.json`.
 - Specific, actionable document error messages.
+- AI-style structured extraction adapter with a prompt contract, schema validation, confidence scoring, and deterministic fallback behavior.
 - Structured extraction from OCR/text-like document content.
 - Policy evaluation for members, waiting periods, exclusions, deadlines, sub-limits, co-pay, pre-authorization, and category rules.
 - Explainable trace across intake, document verification, extraction, policy evaluation, and decision.
@@ -42,6 +43,7 @@ data/
   test_cases.json
 docs/
   architecture.md
+  ai_integration.md
   component_contracts.md
   assignment.md
   sample_documents_guide.md
@@ -69,3 +71,7 @@ reports/
 2. Load `TC03_APPROVED_DIAGNOSTIC` to show a clean approval and full trace.
 3. Load `TC08_MANUAL_REVIEW_PREAUTH` to show pre-authorization manual review.
 4. Explain the design decision: a deterministic policy engine is kept separate from extraction so policy behavior remains testable and explainable.
+
+## AI Integration
+
+The extraction layer uses a schema-guided AI adapter boundary in `src/aiExtractionAdapter.js`. It defines the prompt contract, expected JSON schema, validation rules, confidence scoring, and fallback behavior. The assignment demo runs deterministically for reliability, but the adapter is intentionally shaped so a production OCR/LLM call can replace the local extractor without changing the policy engine.

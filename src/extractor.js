@@ -1,3 +1,5 @@
+const { extractWithAIContract } = require("./aiExtractionAdapter");
+
 const DOC_PATTERNS = {
   PRESCRIPTION: [/rx:/i, /diagnosis:/i, /doctor|dr\./i, /reg\.?\s*no/i],
   HOSPITAL_BILL: [/bill|receipt|invoice/i, /total amount|net amount/i, /hospital|clinic|medical centre/i],
@@ -24,7 +26,16 @@ function extractClaimData(claim, trace) {
   for (const doc of claim.documents || []) {
     try {
       const text = String(doc.text || contentToText(doc.content));
-      const qualityScore = estimateQuality(doc, text);
+      const aiResult = extractWithAIContract(doc, text, {
+        inferDocumentType,
+        estimateQuality,
+        firstMatch,
+        guessProvider,
+        extractLinesAfter,
+        extractTests
+      });
+      const aiExtraction = aiResult.extraction;
+      const qualityScore = aiExtraction.quality.score;
       if (qualityScore < 0.65) {
         extracted.qualityIssues.push({
           documentId: doc.id,
@@ -34,53 +45,42 @@ function extractClaimData(claim, trace) {
         });
       }
 
-      const inferredType = inferDocumentType(text, doc.fileName);
-      const dates = [...text.matchAll(/\b(\d{1,2}[-/ ][A-Za-z]{3,9}[-/ ]\d{4}|\d{4}-\d{2}-\d{2}|\d{1,2}[-/]\d{1,2}[-/]\d{2,4})\b/g)].map((m) => m[1]);
-      const amounts = [...text.matchAll(/(?:total amount|net amount|subtotal|amount|amt)\s*[:\-]?\s*(?:rs\.?|inr|₹)?\s*([0-9,]+(?:\.\d{1,2})?)/gi)]
-        .map((m) => Number(m[1].replace(/,/g, "")))
-        .filter(Number.isFinite);
-
-      const patientName = firstMatch(text, /(?:patient(?: name)?|name)\s*[:\-]\s*([A-Za-z ]{3,60})/i);
-      const doctorName = firstMatch(text, /(Dr\.?\s+[A-Za-z ]{3,60})/i);
-      const providerName = firstMatch(text, /(?:hospital|clinic|pharmacy|diagnostics|medical centre)\s*[:\-]?\s*([A-Za-z &.]{3,70})/i) || guessProvider(text);
-      const diagnosis = firstMatch(text, /diagnosis\s*[:\-]\s*([A-Za-z0-9 ,().-]{3,100})/i);
-      const procedure = firstMatch(text, /(?:procedure|treatment)\s*[:\-]\s*([A-Za-z0-9 ,().-]{3,100})/i);
-      if (doc.content) {
-        mergeStructuredContent(extracted, doc);
-      }
-
-      if (patientName) extracted.patient.name = clean(patientName);
-      if (doctorName) extracted.providers.push({ role: "doctor", name: clean(doctorName) });
-      if (providerName) extracted.providers.push({ role: "facility", name: clean(providerName) });
-      if (diagnosis) extracted.diagnosis.push(clean(diagnosis));
-      if (procedure) extracted.procedures.push(clean(procedure));
-      if (dates.length) extracted.dates.push(...dates);
-      if (amounts.length) extracted.documentAmounts.push(...amounts.map((amount) => ({ documentId: doc.id, documentType: doc.type, amount })));
-
-      extracted.medicines.push(...extractLinesAfter(text, /(?:rx|medicine|medicines)\s*:/i, 6));
-      extracted.tests.push(...extractTests(text));
+      mergeAIExtraction(extracted, aiExtraction);
       extracted.rawSignals.push({
         documentId: doc.id,
         declaredType: doc.type,
-        inferredType,
+        inferredType: aiExtraction.inferredType,
         qualityScore,
+        extractionConfidence: aiExtraction.confidence,
+        schemaVersion: aiExtraction.schemaVersion,
+        schemaValidated: aiResult.ok,
+        validationErrors: aiResult.errors,
         hasText: text.trim().length > 0,
         textLength: text.length
+      });
+
+      trace.add("AIExtractionAdapter", aiResult.ok ? "PASSED" : "DEGRADED", `Schema-guided extraction completed for ${doc.type}.`, {
+        documentId: doc.id,
+        schemaVersion: aiExtraction.schemaVersion,
+        mode: aiResult.mode,
+        confidence: aiExtraction.confidence,
+        fallbackUsed: aiResult.fallbackUsed,
+        validationErrors: aiResult.errors
       });
 
       trace.add("ExtractionAgent", qualityScore < 0.65 ? "DEGRADED" : "PASSED", `Extracted structured fields from ${doc.type}.`, {
         documentId: doc.id,
         declaredType: doc.type,
-        inferredType,
+        inferredType: aiExtraction.inferredType,
         qualityScore,
         fieldsFound: {
-          patientName: Boolean(patientName),
-          doctorName: Boolean(doctorName),
-          providerName: Boolean(providerName),
-          diagnosis: Boolean(diagnosis),
-          procedure: Boolean(procedure),
-          dates: dates.length,
-          amounts: amounts.length
+          patientName: Boolean(aiExtraction.patient.name),
+          providers: aiExtraction.providers.length,
+          diagnosis: aiExtraction.diagnosis.length,
+          procedure: aiExtraction.procedures.length,
+          dates: aiExtraction.dates.length,
+          amounts: aiExtraction.amounts.length,
+          lineItems: aiExtraction.lineItems.length
         }
       });
     } catch (error) {
@@ -100,29 +100,17 @@ function extractClaimData(claim, trace) {
   return extracted;
 }
 
-function mergeStructuredContent(extracted, doc) {
-  const content = doc.content || {};
-  if (content.patient_name) extracted.patient.name = content.patient_name;
-  if (content.doctor_name) extracted.providers.push({ role: "doctor", name: content.doctor_name });
-  if (content.hospital_name) extracted.providers.push({ role: "facility", name: content.hospital_name });
-  if (content.diagnosis) extracted.diagnosis.push(content.diagnosis);
-  if (content.treatment) extracted.procedures.push(content.treatment);
-  if (content.test_name) extracted.tests.push(content.test_name);
-  if (Array.isArray(content.tests_ordered)) extracted.tests.push(...content.tests_ordered);
-  if (Array.isArray(content.medicines)) extracted.medicines.push(...content.medicines);
-  if (content.date) extracted.dates.push(content.date);
-  if (Number.isFinite(Number(content.total))) {
-    extracted.documentAmounts.push({ documentId: doc.id, documentType: doc.type, amount: Number(content.total) });
-  }
-  if (Array.isArray(content.line_items)) {
-    extracted.lineItems = extracted.lineItems || [];
-    extracted.lineItems.push(...content.line_items.map((item) => ({
-      documentId: doc.id,
-      documentType: doc.type,
-      description: item.description,
-      amount: Number(item.amount || 0)
-    })));
-  }
+function mergeAIExtraction(extracted, aiExtraction) {
+  if (aiExtraction.patient.name) extracted.patient.name = aiExtraction.patient.name;
+  extracted.providers.push(...aiExtraction.providers);
+  extracted.diagnosis.push(...aiExtraction.diagnosis);
+  extracted.procedures.push(...aiExtraction.procedures);
+  extracted.medicines.push(...aiExtraction.medicines);
+  extracted.tests.push(...aiExtraction.tests);
+  extracted.dates.push(...aiExtraction.dates);
+  extracted.documentAmounts.push(...aiExtraction.amounts);
+  extracted.lineItems = extracted.lineItems || [];
+  extracted.lineItems.push(...aiExtraction.lineItems);
 }
 
 function contentToText(content) {

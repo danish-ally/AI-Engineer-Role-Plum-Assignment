@@ -55,7 +55,7 @@ Expected: null; Actual: null; Matched: Yes
   "checks": [],
   "trace": [
     {
-      "at": "2026-05-31T17:17:11.497Z",
+      "at": "2026-05-31T17:37:27.021Z",
       "component": "IntakeAgent",
       "status": "PASSED",
       "message": "Claim intake normalized.",
@@ -68,7 +68,7 @@ Expected: null; Actual: null; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.497Z",
+      "at": "2026-05-31T17:37:27.021Z",
       "component": "DocumentVerificationAgent",
       "status": "FAILED",
       "message": "Claim stopped before extraction because required documents did not match policy requirements.",
@@ -95,7 +95,7 @@ Expected: null; Actual: null; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.497Z",
+      "at": "2026-05-31T17:37:27.021Z",
       "component": "DecisionAgent",
       "status": "PASSED",
       "message": "Claim stopped before decision because member action is required.",
@@ -144,7 +144,7 @@ Expected: null; Actual: null; Matched: Yes
   "checks": [],
   "trace": [
     {
-      "at": "2026-05-31T17:17:11.497Z",
+      "at": "2026-05-31T17:37:27.021Z",
       "component": "IntakeAgent",
       "status": "PASSED",
       "message": "Claim intake normalized.",
@@ -157,7 +157,7 @@ Expected: null; Actual: null; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.497Z",
+      "at": "2026-05-31T17:37:27.021Z",
       "component": "DocumentVerificationAgent",
       "status": "FAILED",
       "message": "Claim stopped before extraction because required documents did not match policy requirements.",
@@ -186,7 +186,7 @@ Expected: null; Actual: null; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.497Z",
+      "at": "2026-05-31T17:37:27.021Z",
       "component": "DecisionAgent",
       "status": "PASSED",
       "message": "Claim stopped before decision because member action is required.",
@@ -233,7 +233,9 @@ Expected: null; Actual: null; Matched: Yes
     ]
   },
   "extracted": {
-    "patient": {},
+    "patient": {
+      "name": "Arjun Mehta"
+    },
     "diagnosis": [],
     "procedures": [],
     "medicines": [],
@@ -261,6 +263,10 @@ Expected: null; Actual: null; Matched: Yes
         "declaredType": "PRESCRIPTION",
         "inferredType": "UNKNOWN",
         "qualityScore": 0.45,
+        "extractionConfidence": 0.33,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": false,
         "textLength": 0
       },
@@ -269,16 +275,21 @@ Expected: null; Actual: null; Matched: Yes
         "declaredType": "HOSPITAL_BILL",
         "inferredType": "HOSPITAL_BILL",
         "qualityScore": 0.45,
+        "extractionConfidence": 0.33,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": false,
         "textLength": 0
       }
     ],
+    "lineItems": [],
     "totalDocumentAmount": 0
   },
   "checks": [],
   "trace": [
     {
-      "at": "2026-05-31T17:17:11.497Z",
+      "at": "2026-05-31T17:37:27.021Z",
       "component": "IntakeAgent",
       "status": "PASSED",
       "message": "Claim intake normalized.",
@@ -291,7 +302,7 @@ Expected: null; Actual: null; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.497Z",
+      "at": "2026-05-31T17:37:27.021Z",
       "component": "DocumentVerificationAgent",
       "status": "PASSED",
       "message": "All required document types are present.",
@@ -311,7 +322,21 @@ Expected: null; Actual: null; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.498Z",
+      "at": "2026-05-31T17:37:27.022Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for PRESCRIPTION.",
+      "details": {
+        "documentId": "F005",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.33,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.022Z",
       "component": "ExtractionAgent",
       "status": "DEGRADED",
       "message": "Extracted structured fields from PRESCRIPTION.",
@@ -321,18 +346,32 @@ Expected: null; Actual: null; Matched: Yes
         "inferredType": "UNKNOWN",
         "qualityScore": 0.45,
         "fieldsFound": {
-          "patientName": false,
-          "doctorName": false,
-          "providerName": false,
-          "diagnosis": false,
-          "procedure": false,
+          "patientName": true,
+          "providers": 0,
+          "diagnosis": 0,
+          "procedure": 0,
           "dates": 0,
-          "amounts": 0
+          "amounts": 0,
+          "lineItems": 0
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.498Z",
+      "at": "2026-05-31T17:37:27.023Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for HOSPITAL_BILL.",
+      "details": {
+        "documentId": "F006",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.33,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.023Z",
       "component": "ExtractionAgent",
       "status": "DEGRADED",
       "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -342,18 +381,18 @@ Expected: null; Actual: null; Matched: Yes
         "inferredType": "HOSPITAL_BILL",
         "qualityScore": 0.45,
         "fieldsFound": {
-          "patientName": false,
-          "doctorName": false,
-          "providerName": false,
-          "diagnosis": false,
-          "procedure": false,
+          "patientName": true,
+          "providers": 0,
+          "diagnosis": 0,
+          "procedure": 0,
           "dates": 0,
-          "amounts": 0
+          "amounts": 0,
+          "lineItems": 0
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.498Z",
+      "at": "2026-05-31T17:37:27.023Z",
       "component": "ConsistencyAgent",
       "status": "FAILED",
       "message": "Documents belong to different patients.",
@@ -381,7 +420,9 @@ Expected: null; Actual: null; Matched: Yes
 
 - **IntakeAgent** [PASSED]: Claim intake normalized.
 - **DocumentVerificationAgent** [PASSED]: All required document types are present.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for PRESCRIPTION.
 - **ExtractionAgent** [DEGRADED]: Extracted structured fields from PRESCRIPTION.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for HOSPITAL_BILL.
 - **ExtractionAgent** [DEGRADED]: Extracted structured fields from HOSPITAL_BILL.
 - **ConsistencyAgent** [FAILED]: Documents belong to different patients.
 
@@ -415,10 +456,9 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
   },
   "extracted": {
     "patient": {
-      "name": "City Clinic"
+      "name": "Rajesh Kumar"
     },
     "diagnosis": [
-      "Viral Fever",
       "Viral Fever"
     ],
     "procedures": [],
@@ -433,31 +473,23 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
     "providers": [
       {
         "role": "doctor",
-        "name": "Dr. Arun Sharma"
-      },
-      {
-        "role": "doctor",
-        "name": "Dr. Arun Sharma"
+        "name": "Dr. Arun Sharma",
+        "registration": "KA/45678/2015"
       },
       {
         "role": "facility",
         "name": "City Clinic, Bengaluru"
-      },
-      {
-        "role": "facility",
-        "name": "hospital_name: City Clinic, Bengaluru"
       }
     ],
     "documentAmounts": [
       {
         "documentId": "F008",
         "documentType": "HOSPITAL_BILL",
-        "amount": 1500
+        "amount": 1500,
+        "source": "content.total"
       }
     ],
     "dates": [
-      "2024-11-01",
-      "2024-11-01",
       "2024-11-01",
       "2024-11-01"
     ],
@@ -468,6 +500,10 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
         "declaredType": "PRESCRIPTION",
         "inferredType": "PRESCRIPTION",
         "qualityScore": 0.88,
+        "extractionConfidence": 0.96,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": true,
         "textLength": 175
       },
@@ -476,6 +512,10 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
         "declaredType": "HOSPITAL_BILL",
         "inferredType": "HOSPITAL_BILL",
         "qualityScore": 0.88,
+        "extractionConfidence": 0.96,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": true,
         "textLength": 160
       }
@@ -556,7 +596,7 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
   ],
   "trace": [
     {
-      "at": "2026-05-31T17:17:11.498Z",
+      "at": "2026-05-31T17:37:27.023Z",
       "component": "IntakeAgent",
       "status": "PASSED",
       "message": "Claim intake normalized.",
@@ -569,7 +609,7 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.498Z",
+      "at": "2026-05-31T17:37:27.023Z",
       "component": "DocumentVerificationAgent",
       "status": "PASSED",
       "message": "All required document types are present.",
@@ -589,7 +629,21 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.499Z",
+      "at": "2026-05-31T17:37:27.023Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for PRESCRIPTION.",
+      "details": {
+        "documentId": "F007",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.96,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.023Z",
       "component": "ExtractionAgent",
       "status": "PASSED",
       "message": "Extracted structured fields from PRESCRIPTION.",
@@ -600,17 +654,31 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
         "qualityScore": 0.88,
         "fieldsFound": {
           "patientName": true,
-          "doctorName": true,
-          "providerName": false,
-          "diagnosis": true,
-          "procedure": false,
+          "providers": 1,
+          "diagnosis": 1,
+          "procedure": 0,
           "dates": 1,
-          "amounts": 0
+          "amounts": 0,
+          "lineItems": 0
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.499Z",
+      "at": "2026-05-31T17:37:27.023Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for HOSPITAL_BILL.",
+      "details": {
+        "documentId": "F008",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.96,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.023Z",
       "component": "ExtractionAgent",
       "status": "PASSED",
       "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -621,17 +689,17 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
         "qualityScore": 0.88,
         "fieldsFound": {
           "patientName": true,
-          "doctorName": false,
-          "providerName": true,
-          "diagnosis": false,
-          "procedure": false,
+          "providers": 1,
+          "diagnosis": 0,
+          "procedure": 0,
           "dates": 1,
-          "amounts": 0
+          "amounts": 1,
+          "lineItems": 3
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.499Z",
+      "at": "2026-05-31T17:37:27.023Z",
       "component": "ConsistencyAgent",
       "status": "PASSED",
       "message": "Document patient identity checks passed.",
@@ -642,7 +710,7 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.500Z",
+      "at": "2026-05-31T17:37:27.024Z",
       "component": "PolicyEvaluationAgent",
       "status": "PASSED",
       "message": "Policy checks completed.",
@@ -705,7 +773,7 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.500Z",
+      "at": "2026-05-31T17:37:27.024Z",
       "component": "DecisionAgent",
       "status": "PASSED",
       "message": "Final decision: APPROVED.",
@@ -722,7 +790,9 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
 
 - **IntakeAgent** [PASSED]: Claim intake normalized.
 - **DocumentVerificationAgent** [PASSED]: All required document types are present.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for PRESCRIPTION.
 - **ExtractionAgent** [PASSED]: Extracted structured fields from PRESCRIPTION.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for HOSPITAL_BILL.
 - **ExtractionAgent** [PASSED]: Extracted structured fields from HOSPITAL_BILL.
 - **ConsistencyAgent** [PASSED]: Document patient identity checks passed.
 - **PolicyEvaluationAgent** [PASSED]: Policy checks completed.
@@ -761,7 +831,6 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
       "name": "Vikram Joshi"
     },
     "diagnosis": [
-      "Type 2 Diabetes Mellitus",
       "Type 2 Diabetes Mellitus"
     ],
     "procedures": [],
@@ -773,22 +842,19 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
     "providers": [
       {
         "role": "doctor",
-        "name": "Dr. Sunil Mehta"
-      },
-      {
-        "role": "doctor",
-        "name": "Dr. Sunil Mehta"
+        "name": "Dr. Sunil Mehta",
+        "registration": "GJ/56789/2014"
       }
     ],
     "documentAmounts": [
       {
         "documentId": "F010",
         "documentType": "HOSPITAL_BILL",
-        "amount": 3000
+        "amount": 3000,
+        "source": "content.total"
       }
     ],
     "dates": [
-      "2024-10-15",
       "2024-10-15"
     ],
     "qualityIssues": [],
@@ -798,6 +864,10 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
         "declaredType": "PRESCRIPTION",
         "inferredType": "PRESCRIPTION",
         "qualityScore": 0.88,
+        "extractionConfidence": 0.96,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": true,
         "textLength": 169
       },
@@ -806,10 +876,15 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
         "declaredType": "HOSPITAL_BILL",
         "inferredType": "UNKNOWN",
         "qualityScore": 0.88,
+        "extractionConfidence": 0.96,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": true,
         "textLength": 55
       }
     ],
+    "lineItems": [],
     "totalDocumentAmount": 3000
   },
   "checks": [
@@ -877,7 +952,7 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
   ],
   "trace": [
     {
-      "at": "2026-05-31T17:17:11.500Z",
+      "at": "2026-05-31T17:37:27.024Z",
       "component": "IntakeAgent",
       "status": "PASSED",
       "message": "Claim intake normalized.",
@@ -890,7 +965,7 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.500Z",
+      "at": "2026-05-31T17:37:27.024Z",
       "component": "DocumentVerificationAgent",
       "status": "PASSED",
       "message": "All required document types are present.",
@@ -910,7 +985,21 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.500Z",
+      "at": "2026-05-31T17:37:27.024Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for PRESCRIPTION.",
+      "details": {
+        "documentId": "F009",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.96,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.024Z",
       "component": "ExtractionAgent",
       "status": "PASSED",
       "message": "Extracted structured fields from PRESCRIPTION.",
@@ -921,17 +1010,31 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
         "qualityScore": 0.88,
         "fieldsFound": {
           "patientName": true,
-          "doctorName": true,
-          "providerName": false,
-          "diagnosis": true,
-          "procedure": false,
+          "providers": 1,
+          "diagnosis": 1,
+          "procedure": 0,
           "dates": 0,
-          "amounts": 0
+          "amounts": 0,
+          "lineItems": 0
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.501Z",
+      "at": "2026-05-31T17:37:27.025Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for HOSPITAL_BILL.",
+      "details": {
+        "documentId": "F010",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.96,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.025Z",
       "component": "ExtractionAgent",
       "status": "PASSED",
       "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -942,17 +1045,17 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
         "qualityScore": 0.88,
         "fieldsFound": {
           "patientName": true,
-          "doctorName": false,
-          "providerName": false,
-          "diagnosis": false,
-          "procedure": false,
+          "providers": 0,
+          "diagnosis": 0,
+          "procedure": 0,
           "dates": 1,
-          "amounts": 0
+          "amounts": 1,
+          "lineItems": 0
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.501Z",
+      "at": "2026-05-31T17:37:27.025Z",
       "component": "ConsistencyAgent",
       "status": "PASSED",
       "message": "Document patient identity checks passed.",
@@ -963,7 +1066,7 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.501Z",
+      "at": "2026-05-31T17:37:27.025Z",
       "component": "PolicyEvaluationAgent",
       "status": "FAILED",
       "message": "Policy checks completed.",
@@ -1037,7 +1140,7 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.501Z",
+      "at": "2026-05-31T17:37:27.025Z",
       "component": "DecisionAgent",
       "status": "PASSED",
       "message": "Final decision: REJECTED.",
@@ -1054,7 +1157,9 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
 
 - **IntakeAgent** [PASSED]: Claim intake normalized.
 - **DocumentVerificationAgent** [PASSED]: All required document types are present.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for PRESCRIPTION.
 - **ExtractionAgent** [PASSED]: Extracted structured fields from PRESCRIPTION.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for HOSPITAL_BILL.
 - **ExtractionAgent** [PASSED]: Extracted structured fields from HOSPITAL_BILL.
 - **ConsistencyAgent** [PASSED]: Document patient identity checks passed.
 - **PolicyEvaluationAgent** [FAILED]: Policy checks completed.
@@ -1088,7 +1193,7 @@ Expected: PARTIAL; Actual: PARTIAL; Matched: Yes
   },
   "extracted": {
     "patient": {
-      "name": "Smile Dental Clinic"
+      "name": "Priya Singh"
     },
     "diagnosis": [],
     "procedures": [],
@@ -1098,17 +1203,14 @@ Expected: PARTIAL; Actual: PARTIAL; Matched: Yes
       {
         "role": "facility",
         "name": "Smile Dental Clinic"
-      },
-      {
-        "role": "facility",
-        "name": "patient"
       }
     ],
     "documentAmounts": [
       {
         "documentId": "F011",
         "documentType": "HOSPITAL_BILL",
-        "amount": 12000
+        "amount": 12000,
+        "source": "content.total"
       }
     ],
     "dates": [],
@@ -1119,6 +1221,10 @@ Expected: PARTIAL; Actual: PARTIAL; Matched: Yes
         "declaredType": "HOSPITAL_BILL",
         "inferredType": "HOSPITAL_BILL",
         "qualityScore": 0.88,
+        "extractionConfidence": 0.96,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": true,
         "textLength": 132
       }
@@ -1206,7 +1312,7 @@ Expected: PARTIAL; Actual: PARTIAL; Matched: Yes
   ],
   "trace": [
     {
-      "at": "2026-05-31T17:17:11.501Z",
+      "at": "2026-05-31T17:37:27.025Z",
       "component": "IntakeAgent",
       "status": "PASSED",
       "message": "Claim intake normalized.",
@@ -1219,7 +1325,7 @@ Expected: PARTIAL; Actual: PARTIAL; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.501Z",
+      "at": "2026-05-31T17:37:27.025Z",
       "component": "DocumentVerificationAgent",
       "status": "PASSED",
       "message": "All required document types are present.",
@@ -1237,7 +1343,21 @@ Expected: PARTIAL; Actual: PARTIAL; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.501Z",
+      "at": "2026-05-31T17:37:27.025Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for HOSPITAL_BILL.",
+      "details": {
+        "documentId": "F011",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.96,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.025Z",
       "component": "ExtractionAgent",
       "status": "PASSED",
       "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -1248,17 +1368,17 @@ Expected: PARTIAL; Actual: PARTIAL; Matched: Yes
         "qualityScore": 0.88,
         "fieldsFound": {
           "patientName": true,
-          "doctorName": false,
-          "providerName": true,
-          "diagnosis": false,
-          "procedure": false,
+          "providers": 1,
+          "diagnosis": 0,
+          "procedure": 0,
           "dates": 0,
-          "amounts": 0
+          "amounts": 1,
+          "lineItems": 2
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.501Z",
+      "at": "2026-05-31T17:37:27.025Z",
       "component": "ConsistencyAgent",
       "status": "PASSED",
       "message": "Document patient identity checks passed.",
@@ -1269,7 +1389,7 @@ Expected: PARTIAL; Actual: PARTIAL; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.501Z",
+      "at": "2026-05-31T17:37:27.025Z",
       "component": "PolicyEvaluationAgent",
       "status": "FAILED",
       "message": "Policy checks completed.",
@@ -1345,7 +1465,7 @@ Expected: PARTIAL; Actual: PARTIAL; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.501Z",
+      "at": "2026-05-31T17:37:27.025Z",
       "component": "DecisionAgent",
       "status": "PASSED",
       "message": "Final decision: PARTIAL.",
@@ -1362,6 +1482,7 @@ Expected: PARTIAL; Actual: PARTIAL; Matched: Yes
 
 - **IntakeAgent** [PASSED]: Claim intake normalized.
 - **DocumentVerificationAgent** [PASSED]: All required document types are present.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for HOSPITAL_BILL.
 - **ExtractionAgent** [PASSED]: Extracted structured fields from HOSPITAL_BILL.
 - **ConsistencyAgent** [PASSED]: Document patient identity checks passed.
 - **PolicyEvaluationAgent** [FAILED]: Policy checks completed.
@@ -1401,7 +1522,6 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
       "name": "MRI Lumbar Spine"
     },
     "diagnosis": [
-      "Suspected Lumbar Disc Herniation",
       "Suspected Lumbar Disc Herniation"
     ],
     "procedures": [],
@@ -1416,18 +1536,16 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
     "providers": [
       {
         "role": "doctor",
-        "name": "Dr. Venkat Rao"
-      },
-      {
-        "role": "doctor",
-        "name": "Dr. Venkat Rao"
+        "name": "Dr. Venkat Rao",
+        "registration": "AP/67890/2017"
       }
     ],
     "documentAmounts": [
       {
         "documentId": "F014",
         "documentType": "HOSPITAL_BILL",
-        "amount": 15000
+        "amount": 15000,
+        "source": "content.total"
       }
     ],
     "dates": [],
@@ -1438,6 +1556,10 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
         "declaredType": "PRESCRIPTION",
         "inferredType": "PRESCRIPTION",
         "qualityScore": 0.88,
+        "extractionConfidence": 0.96,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": true,
         "textLength": 138
       },
@@ -1446,6 +1568,10 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
         "declaredType": "LAB_REPORT",
         "inferredType": "UNKNOWN",
         "qualityScore": 0.88,
+        "extractionConfidence": 0.96,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": true,
         "textLength": 27
       },
@@ -1454,6 +1580,10 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
         "declaredType": "HOSPITAL_BILL",
         "inferredType": "UNKNOWN",
         "qualityScore": 0.88,
+        "extractionConfidence": 0.96,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": true,
         "textLength": 47
       }
@@ -1545,7 +1675,7 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
   ],
   "trace": [
     {
-      "at": "2026-05-31T17:17:11.501Z",
+      "at": "2026-05-31T17:37:27.025Z",
       "component": "IntakeAgent",
       "status": "PASSED",
       "message": "Claim intake normalized.",
@@ -1558,7 +1688,7 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.501Z",
+      "at": "2026-05-31T17:37:27.025Z",
       "component": "DocumentVerificationAgent",
       "status": "PASSED",
       "message": "All required document types are present.",
@@ -1579,7 +1709,21 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.501Z",
+      "at": "2026-05-31T17:37:27.025Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for PRESCRIPTION.",
+      "details": {
+        "documentId": "F012",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.96,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.025Z",
       "component": "ExtractionAgent",
       "status": "PASSED",
       "message": "Extracted structured fields from PRESCRIPTION.",
@@ -1590,17 +1734,31 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
         "qualityScore": 0.88,
         "fieldsFound": {
           "patientName": true,
-          "doctorName": true,
-          "providerName": false,
-          "diagnosis": true,
-          "procedure": false,
+          "providers": 1,
+          "diagnosis": 1,
+          "procedure": 0,
           "dates": 0,
-          "amounts": 0
+          "amounts": 0,
+          "lineItems": 0
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.501Z",
+      "at": "2026-05-31T17:37:27.025Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for LAB_REPORT.",
+      "details": {
+        "documentId": "F013",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.96,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.025Z",
       "component": "ExtractionAgent",
       "status": "PASSED",
       "message": "Extracted structured fields from LAB_REPORT.",
@@ -1611,17 +1769,31 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
         "qualityScore": 0.88,
         "fieldsFound": {
           "patientName": true,
-          "doctorName": false,
-          "providerName": false,
-          "diagnosis": false,
-          "procedure": false,
+          "providers": 0,
+          "diagnosis": 0,
+          "procedure": 0,
           "dates": 0,
-          "amounts": 0
+          "amounts": 0,
+          "lineItems": 0
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.501Z",
+      "at": "2026-05-31T17:37:27.025Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for HOSPITAL_BILL.",
+      "details": {
+        "documentId": "F014",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.96,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.025Z",
       "component": "ExtractionAgent",
       "status": "PASSED",
       "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -1632,17 +1804,17 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
         "qualityScore": 0.88,
         "fieldsFound": {
           "patientName": false,
-          "doctorName": false,
-          "providerName": false,
-          "diagnosis": false,
-          "procedure": false,
+          "providers": 0,
+          "diagnosis": 0,
+          "procedure": 0,
           "dates": 0,
-          "amounts": 0
+          "amounts": 1,
+          "lineItems": 1
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.501Z",
+      "at": "2026-05-31T17:37:27.025Z",
       "component": "ConsistencyAgent",
       "status": "PASSED",
       "message": "Document patient identity checks passed.",
@@ -1651,7 +1823,7 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.501Z",
+      "at": "2026-05-31T17:37:27.026Z",
       "component": "PolicyEvaluationAgent",
       "status": "FAILED",
       "message": "Policy checks completed.",
@@ -1737,7 +1909,7 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.501Z",
+      "at": "2026-05-31T17:37:27.026Z",
       "component": "DecisionAgent",
       "status": "PASSED",
       "message": "Final decision: REJECTED.",
@@ -1754,8 +1926,11 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
 
 - **IntakeAgent** [PASSED]: Claim intake normalized.
 - **DocumentVerificationAgent** [PASSED]: All required document types are present.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for PRESCRIPTION.
 - **ExtractionAgent** [PASSED]: Extracted structured fields from PRESCRIPTION.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for LAB_REPORT.
 - **ExtractionAgent** [PASSED]: Extracted structured fields from LAB_REPORT.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for HOSPITAL_BILL.
 - **ExtractionAgent** [PASSED]: Extracted structured fields from HOSPITAL_BILL.
 - **ConsistencyAgent** [PASSED]: Document patient identity checks passed.
 - **PolicyEvaluationAgent** [FAILED]: Policy checks completed.
@@ -1791,10 +1966,9 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
   },
   "extracted": {
     "patient": {
-      "name": "Dr"
+      "name": " Dr"
     },
     "diagnosis": [
-      "Gastroenteritis",
       "Gastroenteritis"
     ],
     "procedures": [],
@@ -1807,14 +1981,16 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
     "providers": [
       {
         "role": "doctor",
-        "name": "Dr. R. Gupta"
+        "name": "Dr. R. Gupta",
+        "registration": "DL/34567/2016"
       }
     ],
     "documentAmounts": [
       {
         "documentId": "F016",
         "documentType": "HOSPITAL_BILL",
-        "amount": 7500
+        "amount": 7500,
+        "source": "content.total"
       }
     ],
     "dates": [],
@@ -1825,6 +2001,10 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
         "declaredType": "PRESCRIPTION",
         "inferredType": "PRESCRIPTION",
         "qualityScore": 0.88,
+        "extractionConfidence": 0.96,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": true,
         "textLength": 125
       },
@@ -1833,6 +2013,10 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
         "declaredType": "HOSPITAL_BILL",
         "inferredType": "PHARMACY_BILL",
         "qualityScore": 0.88,
+        "extractionConfidence": 0.96,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": true,
         "textLength": 60
       }
@@ -1907,7 +2091,7 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
   ],
   "trace": [
     {
-      "at": "2026-05-31T17:17:11.501Z",
+      "at": "2026-05-31T17:37:27.026Z",
       "component": "IntakeAgent",
       "status": "PASSED",
       "message": "Claim intake normalized.",
@@ -1920,7 +2104,7 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.502Z",
+      "at": "2026-05-31T17:37:27.026Z",
       "component": "DocumentVerificationAgent",
       "status": "PASSED",
       "message": "All required document types are present.",
@@ -1940,7 +2124,21 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.502Z",
+      "at": "2026-05-31T17:37:27.026Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for PRESCRIPTION.",
+      "details": {
+        "documentId": "F015",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.96,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.026Z",
       "component": "ExtractionAgent",
       "status": "PASSED",
       "message": "Extracted structured fields from PRESCRIPTION.",
@@ -1951,17 +2149,31 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
         "qualityScore": 0.88,
         "fieldsFound": {
           "patientName": true,
-          "doctorName": false,
-          "providerName": false,
-          "diagnosis": true,
-          "procedure": false,
+          "providers": 1,
+          "diagnosis": 1,
+          "procedure": 0,
           "dates": 0,
-          "amounts": 0
+          "amounts": 0,
+          "lineItems": 0
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.502Z",
+      "at": "2026-05-31T17:37:27.026Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for HOSPITAL_BILL.",
+      "details": {
+        "documentId": "F016",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.96,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.026Z",
       "component": "ExtractionAgent",
       "status": "PASSED",
       "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -1972,17 +2184,17 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
         "qualityScore": 0.88,
         "fieldsFound": {
           "patientName": false,
-          "doctorName": false,
-          "providerName": false,
-          "diagnosis": false,
-          "procedure": false,
+          "providers": 0,
+          "diagnosis": 0,
+          "procedure": 0,
           "dates": 0,
-          "amounts": 0
+          "amounts": 1,
+          "lineItems": 2
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.502Z",
+      "at": "2026-05-31T17:37:27.026Z",
       "component": "ConsistencyAgent",
       "status": "PASSED",
       "message": "Document patient identity checks passed.",
@@ -1991,7 +2203,7 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.502Z",
+      "at": "2026-05-31T17:37:27.026Z",
       "component": "PolicyEvaluationAgent",
       "status": "FAILED",
       "message": "Policy checks completed.",
@@ -2054,7 +2266,7 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.502Z",
+      "at": "2026-05-31T17:37:27.026Z",
       "component": "DecisionAgent",
       "status": "PASSED",
       "message": "Final decision: REJECTED.",
@@ -2071,7 +2283,9 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
 
 - **IntakeAgent** [PASSED]: Claim intake normalized.
 - **DocumentVerificationAgent** [PASSED]: All required document types are present.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for PRESCRIPTION.
 - **ExtractionAgent** [PASSED]: Extracted structured fields from PRESCRIPTION.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for HOSPITAL_BILL.
 - **ExtractionAgent** [PASSED]: Extracted structured fields from HOSPITAL_BILL.
 - **ConsistencyAgent** [PASSED]: Document patient identity checks passed.
 - **PolicyEvaluationAgent** [FAILED]: Policy checks completed.
@@ -2107,10 +2321,9 @@ Expected: MANUAL_REVIEW; Actual: MANUAL_REVIEW; Matched: Yes
   },
   "extracted": {
     "patient": {
-      "name": "Dr"
+      "name": " Dr"
     },
     "diagnosis": [
-      "Migraine",
       "Migraine"
     ],
     "procedures": [],
@@ -2119,14 +2332,16 @@ Expected: MANUAL_REVIEW; Actual: MANUAL_REVIEW; Matched: Yes
     "providers": [
       {
         "role": "doctor",
-        "name": "Dr. S. Khan"
+        "name": "Dr. S. Khan",
+        "registration": null
       }
     ],
     "documentAmounts": [
       {
         "documentId": "F018",
         "documentType": "HOSPITAL_BILL",
-        "amount": 4800
+        "amount": 4800,
+        "source": "content.total"
       }
     ],
     "dates": [],
@@ -2144,6 +2359,10 @@ Expected: MANUAL_REVIEW; Actual: MANUAL_REVIEW; Matched: Yes
         "declaredType": "PRESCRIPTION",
         "inferredType": "PRESCRIPTION",
         "qualityScore": 0.88,
+        "extractionConfidence": 0.96,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": true,
         "textLength": 44
       },
@@ -2152,10 +2371,15 @@ Expected: MANUAL_REVIEW; Actual: MANUAL_REVIEW; Matched: Yes
         "declaredType": "HOSPITAL_BILL",
         "inferredType": "UNKNOWN",
         "qualityScore": 0.45,
+        "extractionConfidence": 0.41,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": true,
         "textLength": 11
       }
     ],
+    "lineItems": [],
     "totalDocumentAmount": 4800
   },
   "checks": [
@@ -2256,7 +2480,7 @@ Expected: MANUAL_REVIEW; Actual: MANUAL_REVIEW; Matched: Yes
   ],
   "trace": [
     {
-      "at": "2026-05-31T17:17:11.502Z",
+      "at": "2026-05-31T17:37:27.026Z",
       "component": "IntakeAgent",
       "status": "PASSED",
       "message": "Claim intake normalized.",
@@ -2269,7 +2493,7 @@ Expected: MANUAL_REVIEW; Actual: MANUAL_REVIEW; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.502Z",
+      "at": "2026-05-31T17:37:27.026Z",
       "component": "DocumentVerificationAgent",
       "status": "PASSED",
       "message": "All required document types are present.",
@@ -2289,7 +2513,21 @@ Expected: MANUAL_REVIEW; Actual: MANUAL_REVIEW; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.502Z",
+      "at": "2026-05-31T17:37:27.026Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for PRESCRIPTION.",
+      "details": {
+        "documentId": "F017",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.96,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.026Z",
       "component": "ExtractionAgent",
       "status": "PASSED",
       "message": "Extracted structured fields from PRESCRIPTION.",
@@ -2300,17 +2538,31 @@ Expected: MANUAL_REVIEW; Actual: MANUAL_REVIEW; Matched: Yes
         "qualityScore": 0.88,
         "fieldsFound": {
           "patientName": true,
-          "doctorName": false,
-          "providerName": false,
-          "diagnosis": true,
-          "procedure": false,
+          "providers": 1,
+          "diagnosis": 1,
+          "procedure": 0,
           "dates": 0,
-          "amounts": 0
+          "amounts": 0,
+          "lineItems": 0
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.502Z",
+      "at": "2026-05-31T17:37:27.026Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for HOSPITAL_BILL.",
+      "details": {
+        "documentId": "F018",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.41,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.026Z",
       "component": "ExtractionAgent",
       "status": "DEGRADED",
       "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -2321,17 +2573,17 @@ Expected: MANUAL_REVIEW; Actual: MANUAL_REVIEW; Matched: Yes
         "qualityScore": 0.45,
         "fieldsFound": {
           "patientName": false,
-          "doctorName": false,
-          "providerName": false,
-          "diagnosis": false,
-          "procedure": false,
+          "providers": 0,
+          "diagnosis": 0,
+          "procedure": 0,
           "dates": 0,
-          "amounts": 0
+          "amounts": 1,
+          "lineItems": 0
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.502Z",
+      "at": "2026-05-31T17:37:27.026Z",
       "component": "ConsistencyAgent",
       "status": "PASSED",
       "message": "Document patient identity checks passed.",
@@ -2340,7 +2592,7 @@ Expected: MANUAL_REVIEW; Actual: MANUAL_REVIEW; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.502Z",
+      "at": "2026-05-31T17:37:27.026Z",
       "component": "PolicyEvaluationAgent",
       "status": "WARN",
       "message": "Policy checks completed.",
@@ -2447,7 +2699,7 @@ Expected: MANUAL_REVIEW; Actual: MANUAL_REVIEW; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.502Z",
+      "at": "2026-05-31T17:37:27.026Z",
       "component": "DecisionAgent",
       "status": "PASSED",
       "message": "Final decision: MANUAL_REVIEW.",
@@ -2464,7 +2716,9 @@ Expected: MANUAL_REVIEW; Actual: MANUAL_REVIEW; Matched: Yes
 
 - **IntakeAgent** [PASSED]: Claim intake normalized.
 - **DocumentVerificationAgent** [PASSED]: All required document types are present.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for PRESCRIPTION.
 - **ExtractionAgent** [PASSED]: Extracted structured fields from PRESCRIPTION.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for HOSPITAL_BILL.
 - **ExtractionAgent** [DEGRADED]: Extracted structured fields from HOSPITAL_BILL.
 - **ConsistencyAgent** [PASSED]: Document patient identity checks passed.
 - **PolicyEvaluationAgent** [WARN]: Policy checks completed.
@@ -2500,10 +2754,9 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
   },
   "extracted": {
     "patient": {
-      "name": "Apollo Hospitals"
+      "name": "Deepak Shah"
     },
     "diagnosis": [
-      "Acute Bronchitis",
       "Acute Bronchitis"
     ],
     "procedures": [],
@@ -2515,22 +2768,20 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
     "providers": [
       {
         "role": "doctor",
-        "name": "Dr. S. Iyer"
+        "name": "Dr. S. Iyer",
+        "registration": "TN/56789/2013"
       },
       {
         "role": "facility",
         "name": "Apollo Hospitals"
-      },
-      {
-        "role": "facility",
-        "name": "hospital_name: Apollo Hospitals"
       }
     ],
     "documentAmounts": [
       {
         "documentId": "F020",
         "documentType": "HOSPITAL_BILL",
-        "amount": 4500
+        "amount": 4500,
+        "source": "content.total"
       }
     ],
     "dates": [],
@@ -2541,6 +2792,10 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
         "declaredType": "PRESCRIPTION",
         "inferredType": "PRESCRIPTION",
         "qualityScore": 0.88,
+        "extractionConfidence": 0.96,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": true,
         "textLength": 161
       },
@@ -2549,6 +2804,10 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
         "declaredType": "HOSPITAL_BILL",
         "inferredType": "HOSPITAL_BILL",
         "qualityScore": 0.88,
+        "extractionConfidence": 0.96,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": true,
         "textLength": 118
       }
@@ -2623,7 +2882,7 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
   ],
   "trace": [
     {
-      "at": "2026-05-31T17:17:11.502Z",
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "IntakeAgent",
       "status": "PASSED",
       "message": "Claim intake normalized.",
@@ -2636,7 +2895,7 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.502Z",
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "DocumentVerificationAgent",
       "status": "PASSED",
       "message": "All required document types are present.",
@@ -2656,7 +2915,21 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for PRESCRIPTION.",
+      "details": {
+        "documentId": "F019",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.96,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "ExtractionAgent",
       "status": "PASSED",
       "message": "Extracted structured fields from PRESCRIPTION.",
@@ -2667,17 +2940,31 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
         "qualityScore": 0.88,
         "fieldsFound": {
           "patientName": true,
-          "doctorName": false,
-          "providerName": false,
-          "diagnosis": true,
-          "procedure": false,
+          "providers": 1,
+          "diagnosis": 1,
+          "procedure": 0,
           "dates": 0,
-          "amounts": 0
+          "amounts": 0,
+          "lineItems": 0
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for HOSPITAL_BILL.",
+      "details": {
+        "documentId": "F020",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.96,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "ExtractionAgent",
       "status": "PASSED",
       "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -2688,17 +2975,17 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
         "qualityScore": 0.88,
         "fieldsFound": {
           "patientName": true,
-          "doctorName": false,
-          "providerName": true,
-          "diagnosis": false,
-          "procedure": false,
+          "providers": 1,
+          "diagnosis": 0,
+          "procedure": 0,
           "dates": 0,
-          "amounts": 0
+          "amounts": 1,
+          "lineItems": 2
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "ConsistencyAgent",
       "status": "PASSED",
       "message": "Document patient identity checks passed.",
@@ -2709,7 +2996,7 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "PolicyEvaluationAgent",
       "status": "PASSED",
       "message": "Policy checks completed.",
@@ -2772,7 +3059,7 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "DecisionAgent",
       "status": "PASSED",
       "message": "Final decision: APPROVED.",
@@ -2789,7 +3076,9 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
 
 - **IntakeAgent** [PASSED]: Claim intake normalized.
 - **DocumentVerificationAgent** [PASSED]: All required document types are present.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for PRESCRIPTION.
 - **ExtractionAgent** [PASSED]: Extracted structured fields from PRESCRIPTION.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for HOSPITAL_BILL.
 - **ExtractionAgent** [PASSED]: Extracted structured fields from HOSPITAL_BILL.
 - **ConsistencyAgent** [PASSED]: Document patient identity checks passed.
 - **PolicyEvaluationAgent** [PASSED]: Policy checks completed.
@@ -2825,11 +3114,9 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
       "name": "Ayur Wellness Centre"
     },
     "diagnosis": [
-      "Chronic Joint Pain",
       "Chronic Joint Pain"
     ],
     "procedures": [
-      "Panchakarma Therapy",
       "Panchakarma Therapy"
     ],
     "medicines": [],
@@ -2837,22 +3124,20 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
     "providers": [
       {
         "role": "doctor",
-        "name": "Vaidya T. Krishnan"
+        "name": "Vaidya T. Krishnan",
+        "registration": "AYUR/KL/2345/2019"
       },
       {
         "role": "facility",
         "name": "Ayur Wellness Centre"
-      },
-      {
-        "role": "facility",
-        "name": "hospital_name: Ayur Wellness Centre"
       }
     ],
     "documentAmounts": [
       {
         "documentId": "F022",
         "documentType": "HOSPITAL_BILL",
-        "amount": 4000
+        "amount": 4000,
+        "source": "content.total"
       }
     ],
     "dates": [],
@@ -2863,6 +3148,10 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
         "declaredType": "PRESCRIPTION",
         "inferredType": "PRESCRIPTION",
         "qualityScore": 0.88,
+        "extractionConfidence": 0.96,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": true,
         "textLength": 131
       },
@@ -2871,6 +3160,10 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
         "declaredType": "HOSPITAL_BILL",
         "inferredType": "HOSPITAL_BILL",
         "qualityScore": 0.88,
+        "extractionConfidence": 0.96,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": true,
         "textLength": 115
       }
@@ -2973,7 +3266,7 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
   ],
   "trace": [
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "IntakeAgent",
       "status": "PASSED",
       "message": "Claim intake normalized.",
@@ -2986,7 +3279,7 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "DocumentVerificationAgent",
       "status": "PASSED",
       "message": "All required document types are present.",
@@ -3003,7 +3296,21 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for PRESCRIPTION.",
+      "details": {
+        "documentId": "F021",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.96,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "ExtractionAgent",
       "status": "PASSED",
       "message": "Extracted structured fields from PRESCRIPTION.",
@@ -3014,17 +3321,31 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
         "qualityScore": 0.88,
         "fieldsFound": {
           "patientName": true,
-          "doctorName": false,
-          "providerName": false,
-          "diagnosis": true,
-          "procedure": true,
+          "providers": 1,
+          "diagnosis": 1,
+          "procedure": 1,
           "dates": 0,
-          "amounts": 0
+          "amounts": 0,
+          "lineItems": 0
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for HOSPITAL_BILL.",
+      "details": {
+        "documentId": "F022",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.96,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "ExtractionAgent",
       "status": "PASSED",
       "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -3035,17 +3356,17 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
         "qualityScore": 0.88,
         "fieldsFound": {
           "patientName": true,
-          "doctorName": false,
-          "providerName": true,
-          "diagnosis": false,
-          "procedure": false,
+          "providers": 1,
+          "diagnosis": 0,
+          "procedure": 0,
           "dates": 0,
-          "amounts": 0
+          "amounts": 1,
+          "lineItems": 2
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "ConsistencyAgent",
       "status": "PASSED",
       "message": "Document patient identity checks passed.",
@@ -3054,7 +3375,7 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "ExtractionAgent",
       "status": "DEGRADED",
       "message": "Simulated extraction sub-component failure; continuing with structured document content and reduced confidence.",
@@ -3063,7 +3384,7 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "PolicyEvaluationAgent",
       "status": "PASSED",
       "message": "Policy checks completed.",
@@ -3154,7 +3475,7 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "DecisionAgent",
       "status": "PASSED",
       "message": "Final decision: APPROVED.",
@@ -3171,7 +3492,9 @@ Expected: APPROVED; Actual: APPROVED; Matched: Yes
 
 - **IntakeAgent** [PASSED]: Claim intake normalized.
 - **DocumentVerificationAgent** [PASSED]: All required document types are present.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for PRESCRIPTION.
 - **ExtractionAgent** [PASSED]: Extracted structured fields from PRESCRIPTION.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for HOSPITAL_BILL.
 - **ExtractionAgent** [PASSED]: Extracted structured fields from HOSPITAL_BILL.
 - **ConsistencyAgent** [PASSED]: Document patient identity checks passed.
 - **ExtractionAgent** [DEGRADED]: Simulated extraction sub-component failure; continuing with structured document content and reduced confidence.
@@ -3208,14 +3531,12 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
   },
   "extracted": {
     "patient": {
-      "name": "Dr"
+      "name": " Dr"
     },
     "diagnosis": [
-      "Morbid Obesity — BMI 37",
-      "Morbid Obesity"
+      "Morbid Obesity — BMI 37"
     ],
     "procedures": [
-      "Bariatric Consultation and Customised Diet Plan",
       "Bariatric Consultation and Customised Diet Plan"
     ],
     "medicines": [],
@@ -3223,14 +3544,16 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
     "providers": [
       {
         "role": "doctor",
-        "name": "Dr. P. Banerjee"
+        "name": "Dr. P. Banerjee",
+        "registration": "WB/34567/2015"
       }
     ],
     "documentAmounts": [
       {
         "documentId": "F024",
         "documentType": "HOSPITAL_BILL",
-        "amount": 8000
+        "amount": 8000,
+        "source": "content.total"
       }
     ],
     "dates": [],
@@ -3241,6 +3564,10 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
         "declaredType": "PRESCRIPTION",
         "inferredType": "PRESCRIPTION",
         "qualityScore": 0.88,
+        "extractionConfidence": 0.96,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": true,
         "textLength": 157
       },
@@ -3249,6 +3576,10 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
         "declaredType": "HOSPITAL_BILL",
         "inferredType": "UNKNOWN",
         "qualityScore": 0.88,
+        "extractionConfidence": 0.96,
+        "schemaVersion": "medical-claim-extraction.v1",
+        "schemaValidated": true,
+        "validationErrors": [],
         "hasText": true,
         "textLength": 96
       }
@@ -3325,7 +3656,7 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
   ],
   "trace": [
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "IntakeAgent",
       "status": "PASSED",
       "message": "Claim intake normalized.",
@@ -3338,7 +3669,7 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "DocumentVerificationAgent",
       "status": "PASSED",
       "message": "All required document types are present.",
@@ -3358,7 +3689,21 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for PRESCRIPTION.",
+      "details": {
+        "documentId": "F023",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.96,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "ExtractionAgent",
       "status": "PASSED",
       "message": "Extracted structured fields from PRESCRIPTION.",
@@ -3369,17 +3714,31 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
         "qualityScore": 0.88,
         "fieldsFound": {
           "patientName": true,
-          "doctorName": false,
-          "providerName": false,
-          "diagnosis": true,
-          "procedure": true,
+          "providers": 1,
+          "diagnosis": 1,
+          "procedure": 1,
           "dates": 0,
-          "amounts": 0
+          "amounts": 0,
+          "lineItems": 0
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
+      "component": "AIExtractionAdapter",
+      "status": "PASSED",
+      "message": "Schema-guided extraction completed for HOSPITAL_BILL.",
+      "details": {
+        "documentId": "F024",
+        "schemaVersion": "medical-claim-extraction.v1",
+        "mode": "schema_guided_ai_adapter",
+        "confidence": 0.96,
+        "fallbackUsed": false,
+        "validationErrors": []
+      }
+    },
+    {
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "ExtractionAgent",
       "status": "PASSED",
       "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -3390,17 +3749,17 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
         "qualityScore": 0.88,
         "fieldsFound": {
           "patientName": false,
-          "doctorName": false,
-          "providerName": false,
-          "diagnosis": false,
-          "procedure": false,
+          "providers": 0,
+          "diagnosis": 0,
+          "procedure": 0,
           "dates": 0,
-          "amounts": 0
+          "amounts": 1,
+          "lineItems": 2
         }
       }
     },
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "ConsistencyAgent",
       "status": "PASSED",
       "message": "Document patient identity checks passed.",
@@ -3409,7 +3768,7 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "PolicyEvaluationAgent",
       "status": "FAILED",
       "message": "Policy checks completed.",
@@ -3474,7 +3833,7 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
       }
     },
     {
-      "at": "2026-05-31T17:17:11.503Z",
+      "at": "2026-05-31T17:37:27.027Z",
       "component": "DecisionAgent",
       "status": "PASSED",
       "message": "Final decision: REJECTED.",
@@ -3491,7 +3850,9 @@ Expected: REJECTED; Actual: REJECTED; Matched: Yes
 
 - **IntakeAgent** [PASSED]: Claim intake normalized.
 - **DocumentVerificationAgent** [PASSED]: All required document types are present.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for PRESCRIPTION.
 - **ExtractionAgent** [PASSED]: Extracted structured fields from PRESCRIPTION.
+- **AIExtractionAdapter** [PASSED]: Schema-guided extraction completed for HOSPITAL_BILL.
 - **ExtractionAgent** [PASSED]: Extracted structured fields from HOSPITAL_BILL.
 - **ConsistencyAgent** [PASSED]: Document patient identity checks passed.
 - **PolicyEvaluationAgent** [FAILED]: Policy checks completed.
