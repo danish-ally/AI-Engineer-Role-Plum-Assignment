@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plum Claims Copilot</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Plum AI Engineer Assignment</p>
+        <h1>Claims Copilot</h1>
+      </div>
+      <div class="status-pill">Explainable pipeline</div>
+    </header>
+
+    <main class="layout">
+      <section class="panel input-panel">
+        <div class="section-head">
+          <div>
+            <h2>Claim Submission</h2>
+            <p>Load a sample case or edit the fields and documents directly.</p>
+          </div>
+          <select id="casePicker" aria-label="Sample cases"></select>
+        </div>
+
+        <form id="claimForm">
+          <div class="grid two">
+            <label>
+              Claim ID
+              <input name="claimId" id="claimId" required>
+            </label>
+            <label>
+              Member ID
+              <select name="memberId" id="memberId"></select>
+            </label>
+            <label>
+              Treatment Type
+              <select name="treatmentType" id="treatmentType">
+                <option>CONSULTATION</option>
+                <option>DIAGNOSTIC</option>
+                <option>PHARMACY</option>
+                <option>DENTAL</option>
+                <option>VISION</option>
+                <option>ALTERNATIVE_MEDICINE</option>
+              </select>
+            </label>
+            <label>
+              Claimed Amount
+              <input name="claimedAmount" id="claimedAmount" type="number" min="0" required>
+            </label>
+            <label>
+              Treatment Date
+              <input name="treatmentDate" id="treatmentDate" type="date" required>
+            </label>
+            <label>
+              Submission Date
+              <input name="submissionDate" id="submissionDate" type="date" required>
+            </label>
+          </div>
+
+          <label class="checkbox-row">
+            <input type="checkbox" id="preAuthorized">
+            Pre-authorization provided
+          </label>
+
+          <div class="section-head compact">
+            <h2>Documents</h2>
+            <button type="button" id="addDocument" class="secondary">Add document</button>
+          </div>
+          <div id="documents"></div>
+
+          <button type="submit" class="primary">Process claim</button>
+        </form>
+      </section>
+
+      <section class="panel output-panel">
+        <div id="emptyState" class="empty">
+          <h2>Decision review appears here</h2>
+          <p>Run a claim to see approved amount, policy checks, extracted fields, and trace.</p>
+        </div>
+
+        <div id="resultView" class="hidden">
+          <div class="decision-card" id="decisionCard">
+            <div>
+              <p class="eyebrow">Final Decision</p>
+              <h2 id="decisionText"></h2>
+            </div>
+            <div class="amount-box">
+              <span>Approved</span>
+              <strong id="approvedAmount"></strong>
+            </div>
+          </div>
+
+          <div class="metrics">
+            <div><span>Confidence</span><strong id="confidence"></strong></div>
+            <div><span>Trace Steps</span><strong id="traceCount"></strong></div>
+            <div><span>Checks</span><strong id="checkCount"></strong></div>
+          </div>
+
+          <section class="review-section">
+            <h3>Reason</h3>
+            <p id="reason"></p>
+          </section>
+
+          <section class="review-section">
+            <h3>Policy Checks</h3>
+            <div id="checks"></div>
+          </section>
+
+          <section class="review-section">
+            <h3>Extracted Data</h3>
+            <pre id="extracted"></pre>
+          </section>
+
+          <section class="review-section">
+            <h3>Trace</h3>
+            <div id="trace"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

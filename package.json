@@ -1,0 +1,19 @@
+{
+  "name": "plum-claims-copilot",
+  "version": "1.0.0",
+  "description": "Explainable multi-agent health insurance claims processing system for Plum AI Engineer assignment.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node tests/pipeline.test.js",
+    "eval": "node scripts/evaluate.js"
+  },
+  "keywords": [
+    "claims",
+    "insurance",
+    "policy-engine",
+    "explainable-ai"
+  ],
+  "author": "Md Danish Ali",
+  "license": "MIT"
+}
