@@ -37,7 +37,7 @@
       "checks": [],
       "trace": [
         {
-          "at": "2026-05-31T16:48:38.957Z",
+          "at": "2026-05-31T16:57:32.893Z",
           "component": "IntakeAgent",
           "status": "PASSED",
           "message": "Claim intake normalized.",
@@ -50,7 +50,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.957Z",
+          "at": "2026-05-31T16:57:32.893Z",
           "component": "DocumentVerificationAgent",
           "status": "FAILED",
           "message": "Claim stopped before extraction because required documents did not match policy requirements.",
@@ -77,7 +77,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.957Z",
+          "at": "2026-05-31T16:57:32.893Z",
           "component": "DecisionAgent",
           "status": "PASSED",
           "message": "Claim stopped before decision because member action is required.",
@@ -90,7 +90,7 @@
     },
     "trace": [
       {
-        "at": "2026-05-31T16:48:38.957Z",
+        "at": "2026-05-31T16:57:32.893Z",
         "component": "IntakeAgent",
         "status": "PASSED",
         "message": "Claim intake normalized.",
@@ -103,7 +103,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.957Z",
+        "at": "2026-05-31T16:57:32.893Z",
         "component": "DocumentVerificationAgent",
         "status": "FAILED",
         "message": "Claim stopped before extraction because required documents did not match policy requirements.",
@@ -130,7 +130,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.957Z",
+        "at": "2026-05-31T16:57:32.893Z",
         "component": "DecisionAgent",
         "status": "PASSED",
         "message": "Claim stopped before decision because member action is required.",
@@ -177,7 +177,7 @@
       "checks": [],
       "trace": [
         {
-          "at": "2026-05-31T16:48:38.957Z",
+          "at": "2026-05-31T16:57:32.893Z",
           "component": "IntakeAgent",
           "status": "PASSED",
           "message": "Claim intake normalized.",
@@ -190,7 +190,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.957Z",
+          "at": "2026-05-31T16:57:32.893Z",
           "component": "DocumentVerificationAgent",
           "status": "FAILED",
           "message": "Claim stopped before extraction because required documents did not match policy requirements.",
@@ -219,7 +219,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.957Z",
+          "at": "2026-05-31T16:57:32.893Z",
           "component": "DecisionAgent",
           "status": "PASSED",
           "message": "Claim stopped before decision because member action is required.",
@@ -232,7 +232,7 @@
     },
     "trace": [
       {
-        "at": "2026-05-31T16:48:38.957Z",
+        "at": "2026-05-31T16:57:32.893Z",
         "component": "IntakeAgent",
         "status": "PASSED",
         "message": "Claim intake normalized.",
@@ -245,7 +245,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.957Z",
+        "at": "2026-05-31T16:57:32.893Z",
         "component": "DocumentVerificationAgent",
         "status": "FAILED",
         "message": "Claim stopped before extraction because required documents did not match policy requirements.",
@@ -274,7 +274,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.957Z",
+        "at": "2026-05-31T16:57:32.893Z",
         "component": "DecisionAgent",
         "status": "PASSED",
         "message": "Claim stopped before decision because member action is required.",
@@ -364,7 +364,7 @@
       "checks": [],
       "trace": [
         {
-          "at": "2026-05-31T16:48:38.957Z",
+          "at": "2026-05-31T16:57:32.893Z",
           "component": "IntakeAgent",
           "status": "PASSED",
           "message": "Claim intake normalized.",
@@ -377,7 +377,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.957Z",
+          "at": "2026-05-31T16:57:32.893Z",
           "component": "DocumentVerificationAgent",
           "status": "PASSED",
           "message": "All required document types are present.",
@@ -397,7 +397,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.958Z",
+          "at": "2026-05-31T16:57:32.894Z",
           "component": "ExtractionAgent",
           "status": "DEGRADED",
           "message": "Extracted structured fields from PRESCRIPTION.",
@@ -418,7 +418,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.958Z",
+          "at": "2026-05-31T16:57:32.895Z",
           "component": "ExtractionAgent",
           "status": "DEGRADED",
           "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -439,7 +439,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.958Z",
+          "at": "2026-05-31T16:57:32.895Z",
           "component": "ConsistencyAgent",
           "status": "FAILED",
           "message": "Documents belong to different patients.",
@@ -465,7 +465,7 @@
     },
     "trace": [
       {
-        "at": "2026-05-31T16:48:38.957Z",
+        "at": "2026-05-31T16:57:32.893Z",
         "component": "IntakeAgent",
         "status": "PASSED",
         "message": "Claim intake normalized.",
@@ -478,7 +478,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.957Z",
+        "at": "2026-05-31T16:57:32.893Z",
         "component": "DocumentVerificationAgent",
         "status": "PASSED",
         "message": "All required document types are present.",
@@ -498,7 +498,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.958Z",
+        "at": "2026-05-31T16:57:32.894Z",
         "component": "ExtractionAgent",
         "status": "DEGRADED",
         "message": "Extracted structured fields from PRESCRIPTION.",
@@ -519,7 +519,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.958Z",
+        "at": "2026-05-31T16:57:32.895Z",
         "component": "ExtractionAgent",
         "status": "DEGRADED",
         "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -540,7 +540,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.958Z",
+        "at": "2026-05-31T16:57:32.895Z",
         "component": "ConsistencyAgent",
         "status": "FAILED",
         "message": "Documents belong to different patients.",
@@ -740,7 +740,7 @@
       ],
       "trace": [
         {
-          "at": "2026-05-31T16:48:38.958Z",
+          "at": "2026-05-31T16:57:32.895Z",
           "component": "IntakeAgent",
           "status": "PASSED",
           "message": "Claim intake normalized.",
@@ -753,7 +753,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.958Z",
+          "at": "2026-05-31T16:57:32.895Z",
           "component": "DocumentVerificationAgent",
           "status": "PASSED",
           "message": "All required document types are present.",
@@ -773,7 +773,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.959Z",
+          "at": "2026-05-31T16:57:32.895Z",
           "component": "ExtractionAgent",
           "status": "PASSED",
           "message": "Extracted structured fields from PRESCRIPTION.",
@@ -794,7 +794,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.959Z",
+          "at": "2026-05-31T16:57:32.895Z",
           "component": "ExtractionAgent",
           "status": "PASSED",
           "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -815,7 +815,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.959Z",
+          "at": "2026-05-31T16:57:32.895Z",
           "component": "ConsistencyAgent",
           "status": "PASSED",
           "message": "Document patient identity checks passed.",
@@ -826,7 +826,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.960Z",
+          "at": "2026-05-31T16:57:32.896Z",
           "component": "PolicyEvaluationAgent",
           "status": "PASSED",
           "message": "Policy checks completed.",
@@ -889,7 +889,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.960Z",
+          "at": "2026-05-31T16:57:32.896Z",
           "component": "DecisionAgent",
           "status": "PASSED",
           "message": "Final decision: APPROVED.",
@@ -904,7 +904,7 @@
     },
     "trace": [
       {
-        "at": "2026-05-31T16:48:38.958Z",
+        "at": "2026-05-31T16:57:32.895Z",
         "component": "IntakeAgent",
         "status": "PASSED",
         "message": "Claim intake normalized.",
@@ -917,7 +917,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.958Z",
+        "at": "2026-05-31T16:57:32.895Z",
         "component": "DocumentVerificationAgent",
         "status": "PASSED",
         "message": "All required document types are present.",
@@ -937,7 +937,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.959Z",
+        "at": "2026-05-31T16:57:32.895Z",
         "component": "ExtractionAgent",
         "status": "PASSED",
         "message": "Extracted structured fields from PRESCRIPTION.",
@@ -958,7 +958,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.959Z",
+        "at": "2026-05-31T16:57:32.895Z",
         "component": "ExtractionAgent",
         "status": "PASSED",
         "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -979,7 +979,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.959Z",
+        "at": "2026-05-31T16:57:32.895Z",
         "component": "ConsistencyAgent",
         "status": "PASSED",
         "message": "Document patient identity checks passed.",
@@ -990,7 +990,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.960Z",
+        "at": "2026-05-31T16:57:32.896Z",
         "component": "PolicyEvaluationAgent",
         "status": "PASSED",
         "message": "Policy checks completed.",
@@ -1053,7 +1053,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.960Z",
+        "at": "2026-05-31T16:57:32.896Z",
         "component": "DecisionAgent",
         "status": "PASSED",
         "message": "Final decision: APPROVED.",
@@ -1219,7 +1219,7 @@
       ],
       "trace": [
         {
-          "at": "2026-05-31T16:48:38.960Z",
+          "at": "2026-05-31T16:57:32.896Z",
           "component": "IntakeAgent",
           "status": "PASSED",
           "message": "Claim intake normalized.",
@@ -1232,7 +1232,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.960Z",
+          "at": "2026-05-31T16:57:32.896Z",
           "component": "DocumentVerificationAgent",
           "status": "PASSED",
           "message": "All required document types are present.",
@@ -1252,7 +1252,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.960Z",
+          "at": "2026-05-31T16:57:32.896Z",
           "component": "ExtractionAgent",
           "status": "PASSED",
           "message": "Extracted structured fields from PRESCRIPTION.",
@@ -1273,7 +1273,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.960Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "ExtractionAgent",
           "status": "PASSED",
           "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -1294,7 +1294,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.960Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "ConsistencyAgent",
           "status": "PASSED",
           "message": "Document patient identity checks passed.",
@@ -1305,7 +1305,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "PolicyEvaluationAgent",
           "status": "FAILED",
           "message": "Policy checks completed.",
@@ -1379,7 +1379,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "DecisionAgent",
           "status": "PASSED",
           "message": "Final decision: REJECTED.",
@@ -1394,7 +1394,7 @@
     },
     "trace": [
       {
-        "at": "2026-05-31T16:48:38.960Z",
+        "at": "2026-05-31T16:57:32.896Z",
         "component": "IntakeAgent",
         "status": "PASSED",
         "message": "Claim intake normalized.",
@@ -1407,7 +1407,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.960Z",
+        "at": "2026-05-31T16:57:32.896Z",
         "component": "DocumentVerificationAgent",
         "status": "PASSED",
         "message": "All required document types are present.",
@@ -1427,7 +1427,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.960Z",
+        "at": "2026-05-31T16:57:32.896Z",
         "component": "ExtractionAgent",
         "status": "PASSED",
         "message": "Extracted structured fields from PRESCRIPTION.",
@@ -1448,7 +1448,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.960Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "ExtractionAgent",
         "status": "PASSED",
         "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -1469,7 +1469,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.960Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "ConsistencyAgent",
         "status": "PASSED",
         "message": "Document patient identity checks passed.",
@@ -1480,7 +1480,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "PolicyEvaluationAgent",
         "status": "FAILED",
         "message": "Policy checks completed.",
@@ -1554,7 +1554,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "DecisionAgent",
         "status": "PASSED",
         "message": "Final decision: REJECTED.",
@@ -1718,7 +1718,7 @@
       ],
       "trace": [
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "IntakeAgent",
           "status": "PASSED",
           "message": "Claim intake normalized.",
@@ -1731,7 +1731,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "DocumentVerificationAgent",
           "status": "PASSED",
           "message": "All required document types are present.",
@@ -1749,7 +1749,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "ExtractionAgent",
           "status": "PASSED",
           "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -1770,7 +1770,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "ConsistencyAgent",
           "status": "PASSED",
           "message": "Document patient identity checks passed.",
@@ -1781,7 +1781,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "PolicyEvaluationAgent",
           "status": "FAILED",
           "message": "Policy checks completed.",
@@ -1857,7 +1857,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "DecisionAgent",
           "status": "PASSED",
           "message": "Final decision: PARTIAL.",
@@ -1872,7 +1872,7 @@
     },
     "trace": [
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "IntakeAgent",
         "status": "PASSED",
         "message": "Claim intake normalized.",
@@ -1885,7 +1885,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "DocumentVerificationAgent",
         "status": "PASSED",
         "message": "All required document types are present.",
@@ -1903,7 +1903,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "ExtractionAgent",
         "status": "PASSED",
         "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -1924,7 +1924,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "ConsistencyAgent",
         "status": "PASSED",
         "message": "Document patient identity checks passed.",
@@ -1935,7 +1935,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "PolicyEvaluationAgent",
         "status": "FAILED",
         "message": "Policy checks completed.",
@@ -2011,7 +2011,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "DecisionAgent",
         "status": "PASSED",
         "message": "Final decision: PARTIAL.",
@@ -2206,7 +2206,7 @@
       ],
       "trace": [
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "IntakeAgent",
           "status": "PASSED",
           "message": "Claim intake normalized.",
@@ -2219,7 +2219,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "DocumentVerificationAgent",
           "status": "PASSED",
           "message": "All required document types are present.",
@@ -2240,7 +2240,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "ExtractionAgent",
           "status": "PASSED",
           "message": "Extracted structured fields from PRESCRIPTION.",
@@ -2261,7 +2261,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "ExtractionAgent",
           "status": "PASSED",
           "message": "Extracted structured fields from LAB_REPORT.",
@@ -2282,7 +2282,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "ExtractionAgent",
           "status": "PASSED",
           "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -2303,7 +2303,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "ConsistencyAgent",
           "status": "PASSED",
           "message": "Document patient identity checks passed.",
@@ -2312,7 +2312,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "PolicyEvaluationAgent",
           "status": "FAILED",
           "message": "Policy checks completed.",
@@ -2398,7 +2398,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "DecisionAgent",
           "status": "PASSED",
           "message": "Final decision: REJECTED.",
@@ -2413,7 +2413,7 @@
     },
     "trace": [
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "IntakeAgent",
         "status": "PASSED",
         "message": "Claim intake normalized.",
@@ -2426,7 +2426,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "DocumentVerificationAgent",
         "status": "PASSED",
         "message": "All required document types are present.",
@@ -2447,7 +2447,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "ExtractionAgent",
         "status": "PASSED",
         "message": "Extracted structured fields from PRESCRIPTION.",
@@ -2468,7 +2468,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "ExtractionAgent",
         "status": "PASSED",
         "message": "Extracted structured fields from LAB_REPORT.",
@@ -2489,7 +2489,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "ExtractionAgent",
         "status": "PASSED",
         "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -2510,7 +2510,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "ConsistencyAgent",
         "status": "PASSED",
         "message": "Document patient identity checks passed.",
@@ -2519,7 +2519,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "PolicyEvaluationAgent",
         "status": "FAILED",
         "message": "Policy checks completed.",
@@ -2605,7 +2605,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "DecisionAgent",
         "status": "PASSED",
         "message": "Final decision: REJECTED.",
@@ -2768,7 +2768,7 @@
       ],
       "trace": [
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "IntakeAgent",
           "status": "PASSED",
           "message": "Claim intake normalized.",
@@ -2781,7 +2781,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "DocumentVerificationAgent",
           "status": "PASSED",
           "message": "All required document types are present.",
@@ -2801,7 +2801,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "ExtractionAgent",
           "status": "PASSED",
           "message": "Extracted structured fields from PRESCRIPTION.",
@@ -2822,7 +2822,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "ExtractionAgent",
           "status": "PASSED",
           "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -2843,7 +2843,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.897Z",
           "component": "ConsistencyAgent",
           "status": "PASSED",
           "message": "Document patient identity checks passed.",
@@ -2852,7 +2852,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.898Z",
           "component": "PolicyEvaluationAgent",
           "status": "FAILED",
           "message": "Policy checks completed.",
@@ -2915,7 +2915,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.898Z",
           "component": "DecisionAgent",
           "status": "PASSED",
           "message": "Final decision: REJECTED.",
@@ -2930,7 +2930,7 @@
     },
     "trace": [
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "IntakeAgent",
         "status": "PASSED",
         "message": "Claim intake normalized.",
@@ -2943,7 +2943,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "DocumentVerificationAgent",
         "status": "PASSED",
         "message": "All required document types are present.",
@@ -2963,7 +2963,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "ExtractionAgent",
         "status": "PASSED",
         "message": "Extracted structured fields from PRESCRIPTION.",
@@ -2984,7 +2984,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "ExtractionAgent",
         "status": "PASSED",
         "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -3005,7 +3005,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.897Z",
         "component": "ConsistencyAgent",
         "status": "PASSED",
         "message": "Document patient identity checks passed.",
@@ -3014,7 +3014,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.898Z",
         "component": "PolicyEvaluationAgent",
         "status": "FAILED",
         "message": "Policy checks completed.",
@@ -3077,7 +3077,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.898Z",
         "component": "DecisionAgent",
         "status": "PASSED",
         "message": "Final decision: REJECTED.",
@@ -3273,7 +3273,7 @@
       ],
       "trace": [
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.898Z",
           "component": "IntakeAgent",
           "status": "PASSED",
           "message": "Claim intake normalized.",
@@ -3286,7 +3286,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.898Z",
           "component": "DocumentVerificationAgent",
           "status": "PASSED",
           "message": "All required document types are present.",
@@ -3306,7 +3306,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.961Z",
+          "at": "2026-05-31T16:57:32.898Z",
           "component": "ExtractionAgent",
           "status": "PASSED",
           "message": "Extracted structured fields from PRESCRIPTION.",
@@ -3327,7 +3327,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.898Z",
           "component": "ExtractionAgent",
           "status": "DEGRADED",
           "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -3348,7 +3348,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.898Z",
           "component": "ConsistencyAgent",
           "status": "PASSED",
           "message": "Document patient identity checks passed.",
@@ -3357,7 +3357,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.898Z",
           "component": "PolicyEvaluationAgent",
           "status": "WARN",
           "message": "Policy checks completed.",
@@ -3464,7 +3464,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.898Z",
           "component": "DecisionAgent",
           "status": "PASSED",
           "message": "Final decision: MANUAL_REVIEW.",
@@ -3479,7 +3479,7 @@
     },
     "trace": [
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.898Z",
         "component": "IntakeAgent",
         "status": "PASSED",
         "message": "Claim intake normalized.",
@@ -3492,7 +3492,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.898Z",
         "component": "DocumentVerificationAgent",
         "status": "PASSED",
         "message": "All required document types are present.",
@@ -3512,7 +3512,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.961Z",
+        "at": "2026-05-31T16:57:32.898Z",
         "component": "ExtractionAgent",
         "status": "PASSED",
         "message": "Extracted structured fields from PRESCRIPTION.",
@@ -3533,7 +3533,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.898Z",
         "component": "ExtractionAgent",
         "status": "DEGRADED",
         "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -3554,7 +3554,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.898Z",
         "component": "ConsistencyAgent",
         "status": "PASSED",
         "message": "Document patient identity checks passed.",
@@ -3563,7 +3563,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.898Z",
         "component": "PolicyEvaluationAgent",
         "status": "WARN",
         "message": "Policy checks completed.",
@@ -3670,7 +3670,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.898Z",
         "component": "DecisionAgent",
         "status": "PASSED",
         "message": "Final decision: MANUAL_REVIEW.",
@@ -3841,7 +3841,7 @@
       ],
       "trace": [
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.898Z",
           "component": "IntakeAgent",
           "status": "PASSED",
           "message": "Claim intake normalized.",
@@ -3854,7 +3854,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.898Z",
           "component": "DocumentVerificationAgent",
           "status": "PASSED",
           "message": "All required document types are present.",
@@ -3874,7 +3874,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.898Z",
           "component": "ExtractionAgent",
           "status": "PASSED",
           "message": "Extracted structured fields from PRESCRIPTION.",
@@ -3895,7 +3895,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.898Z",
           "component": "ExtractionAgent",
           "status": "PASSED",
           "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -3916,7 +3916,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.898Z",
           "component": "ConsistencyAgent",
           "status": "PASSED",
           "message": "Document patient identity checks passed.",
@@ -3927,7 +3927,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.898Z",
           "component": "PolicyEvaluationAgent",
           "status": "PASSED",
           "message": "Policy checks completed.",
@@ -3990,7 +3990,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.898Z",
           "component": "DecisionAgent",
           "status": "PASSED",
           "message": "Final decision: APPROVED.",
@@ -4005,7 +4005,7 @@
     },
     "trace": [
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.898Z",
         "component": "IntakeAgent",
         "status": "PASSED",
         "message": "Claim intake normalized.",
@@ -4018,7 +4018,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.898Z",
         "component": "DocumentVerificationAgent",
         "status": "PASSED",
         "message": "All required document types are present.",
@@ -4038,7 +4038,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.898Z",
         "component": "ExtractionAgent",
         "status": "PASSED",
         "message": "Extracted structured fields from PRESCRIPTION.",
@@ -4059,7 +4059,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.898Z",
         "component": "ExtractionAgent",
         "status": "PASSED",
         "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -4080,7 +4080,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.898Z",
         "component": "ConsistencyAgent",
         "status": "PASSED",
         "message": "Document patient identity checks passed.",
@@ -4091,7 +4091,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.898Z",
         "component": "PolicyEvaluationAgent",
         "status": "PASSED",
         "message": "Policy checks completed.",
@@ -4154,7 +4154,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.898Z",
         "component": "DecisionAgent",
         "status": "PASSED",
         "message": "Final decision: APPROVED.",
@@ -4349,7 +4349,7 @@
       ],
       "trace": [
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.898Z",
           "component": "IntakeAgent",
           "status": "PASSED",
           "message": "Claim intake normalized.",
@@ -4362,7 +4362,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.898Z",
           "component": "DocumentVerificationAgent",
           "status": "PASSED",
           "message": "All required document types are present.",
@@ -4379,7 +4379,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.899Z",
           "component": "ExtractionAgent",
           "status": "PASSED",
           "message": "Extracted structured fields from PRESCRIPTION.",
@@ -4400,7 +4400,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.899Z",
           "component": "ExtractionAgent",
           "status": "PASSED",
           "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -4421,7 +4421,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.899Z",
           "component": "ConsistencyAgent",
           "status": "PASSED",
           "message": "Document patient identity checks passed.",
@@ -4430,7 +4430,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.899Z",
           "component": "ExtractionAgent",
           "status": "DEGRADED",
           "message": "Simulated extraction sub-component failure; continuing with structured document content and reduced confidence.",
@@ -4439,7 +4439,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.899Z",
           "component": "PolicyEvaluationAgent",
           "status": "PASSED",
           "message": "Policy checks completed.",
@@ -4530,7 +4530,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.899Z",
           "component": "DecisionAgent",
           "status": "PASSED",
           "message": "Final decision: APPROVED.",
@@ -4545,7 +4545,7 @@
     },
     "trace": [
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.898Z",
         "component": "IntakeAgent",
         "status": "PASSED",
         "message": "Claim intake normalized.",
@@ -4558,7 +4558,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.898Z",
         "component": "DocumentVerificationAgent",
         "status": "PASSED",
         "message": "All required document types are present.",
@@ -4575,7 +4575,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.899Z",
         "component": "ExtractionAgent",
         "status": "PASSED",
         "message": "Extracted structured fields from PRESCRIPTION.",
@@ -4596,7 +4596,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.899Z",
         "component": "ExtractionAgent",
         "status": "PASSED",
         "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -4617,7 +4617,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.899Z",
         "component": "ConsistencyAgent",
         "status": "PASSED",
         "message": "Document patient identity checks passed.",
@@ -4626,7 +4626,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.899Z",
         "component": "ExtractionAgent",
         "status": "DEGRADED",
         "message": "Simulated extraction sub-component failure; continuing with structured document content and reduced confidence.",
@@ -4635,7 +4635,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.899Z",
         "component": "PolicyEvaluationAgent",
         "status": "PASSED",
         "message": "Policy checks completed.",
@@ -4726,7 +4726,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.899Z",
         "component": "DecisionAgent",
         "status": "PASSED",
         "message": "Final decision: APPROVED.",
@@ -4890,7 +4890,7 @@
       ],
       "trace": [
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.899Z",
           "component": "IntakeAgent",
           "status": "PASSED",
           "message": "Claim intake normalized.",
@@ -4903,7 +4903,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.899Z",
           "component": "DocumentVerificationAgent",
           "status": "PASSED",
           "message": "All required document types are present.",
@@ -4923,7 +4923,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.899Z",
           "component": "ExtractionAgent",
           "status": "PASSED",
           "message": "Extracted structured fields from PRESCRIPTION.",
@@ -4944,7 +4944,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.899Z",
           "component": "ExtractionAgent",
           "status": "PASSED",
           "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -4965,7 +4965,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.899Z",
           "component": "ConsistencyAgent",
           "status": "PASSED",
           "message": "Document patient identity checks passed.",
@@ -4974,7 +4974,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.899Z",
           "component": "PolicyEvaluationAgent",
           "status": "FAILED",
           "message": "Policy checks completed.",
@@ -5039,7 +5039,7 @@
           }
         },
         {
-          "at": "2026-05-31T16:48:38.962Z",
+          "at": "2026-05-31T16:57:32.899Z",
           "component": "DecisionAgent",
           "status": "PASSED",
           "message": "Final decision: REJECTED.",
@@ -5054,7 +5054,7 @@
     },
     "trace": [
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.899Z",
         "component": "IntakeAgent",
         "status": "PASSED",
         "message": "Claim intake normalized.",
@@ -5067,7 +5067,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.899Z",
         "component": "DocumentVerificationAgent",
         "status": "PASSED",
         "message": "All required document types are present.",
@@ -5087,7 +5087,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.899Z",
         "component": "ExtractionAgent",
         "status": "PASSED",
         "message": "Extracted structured fields from PRESCRIPTION.",
@@ -5108,7 +5108,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.899Z",
         "component": "ExtractionAgent",
         "status": "PASSED",
         "message": "Extracted structured fields from HOSPITAL_BILL.",
@@ -5129,7 +5129,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.899Z",
         "component": "ConsistencyAgent",
         "status": "PASSED",
         "message": "Document patient identity checks passed.",
@@ -5138,7 +5138,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.899Z",
         "component": "PolicyEvaluationAgent",
         "status": "FAILED",
         "message": "Policy checks completed.",
@@ -5203,7 +5203,7 @@
         }
       },
       {
-        "at": "2026-05-31T16:48:38.962Z",
+        "at": "2026-05-31T16:57:32.899Z",
         "component": "DecisionAgent",
         "status": "PASSED",
         "message": "Final decision: REJECTED.",
