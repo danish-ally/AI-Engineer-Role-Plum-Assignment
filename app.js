@@ -3,6 +3,7 @@ const qualityTypes = ["GOOD", "LOW", "UNREADABLE"];
 
 let cases = [];
 let policy = null;
+let apiAvailable = true;
 
 const els = {
   casePicker: document.querySelector("#casePicker"),
@@ -27,12 +28,24 @@ const els = {
 init();
 
 async function init() {
-  const [policyResponse, casesResponse] = await Promise.all([
-    fetch("/api/policy"),
-    fetch("/api/cases")
-  ]);
-  policy = await policyResponse.json();
-  cases = await casesResponse.json();
+  try {
+    const [policyResponse, casesResponse] = await Promise.all([
+      fetch(apiPath("/api/policy")),
+      fetch(apiPath("/api/cases"))
+    ]);
+    if (!policyResponse.ok || !casesResponse.ok) throw new Error("API unavailable");
+    policy = await policyResponse.json();
+    cases = await casesResponse.json();
+  } catch (error) {
+    apiAvailable = false;
+    const [policyResponse, casesResponse] = await Promise.all([
+      fetch("./data/policy_terms.json"),
+      fetch("./data/test_cases.json")
+    ]);
+    policy = await policyResponse.json();
+    const payload = await casesResponse.json();
+    cases = Array.isArray(payload) ? payload : payload.test_cases;
+  }
 
   els.memberId.innerHTML = policy.members
     .map((member) => `<option value="${member.member_id}">${member.member_id} - ${member.name}</option>`)
@@ -108,12 +121,17 @@ async function submitClaim(event) {
   if (selectedCase) {
     claim.rawTestCase = selectedCase;
   }
-  const response = await fetch("/api/claims", {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify(claim)
-  });
-  const result = await response.json();
+  let result;
+  if (apiAvailable) {
+    const response = await fetch(apiPath("/api/claims"), {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(claim)
+    });
+    result = await response.json();
+  } else {
+    result = window.PlumStatic.processClaim(claim, policy);
+  }
   renderResult(result);
 }
 
@@ -191,6 +209,10 @@ function escapeHtml(value) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function apiPath(path) {
+  return path;
 }
 
 function contentToText(content) {
